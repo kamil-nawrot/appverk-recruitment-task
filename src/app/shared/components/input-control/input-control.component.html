@@ -1,1 +1,12 @@
-<p>input-control works!</p>
+<div class="input-control">
+  <label class="input-control__label">{{ label() }}</label>
+  @switch (type()) {
+    @case ('password') {
+      <input class='input-control__input' type="password" />
+    }
+    @default {
+      <input class='input-control__input' type="text" />
+    }
+
+  }
+</div>

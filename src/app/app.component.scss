@@ -5,3 +5,9 @@
   text-transform: uppercase;
   text-align: center;
 }
+
+.main-content {
+  &__wrapper {
+    margin: 2rem 4rem;
+  }
+}

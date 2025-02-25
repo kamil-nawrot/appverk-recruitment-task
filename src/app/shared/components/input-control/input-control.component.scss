@@ -1,0 +1,13 @@
+.input-control {
+  width: 300px;
+  margin-bottom: .8rem;
+
+  &__label {
+    display: block;
+    margin-bottom: .2rem;
+  }
+
+  &__input {
+    width: 100%;
+  }
+}

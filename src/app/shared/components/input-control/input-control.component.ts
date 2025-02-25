@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, input } from '@angular/core';
 
 @Component({
   selector: 'app-input-control',
@@ -7,5 +7,6 @@ import { Component } from '@angular/core';
   styleUrl: './input-control.component.scss'
 })
 export class InputControlComponent {
-
+  label = input('');
+  type = input<'text' | 'password'>('text');
 }
