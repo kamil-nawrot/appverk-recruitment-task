@@ -1,12 +1,18 @@
 <div class="input-control">
-  <label class="input-control__label">{{ label() }}</label>
+  <label class="input-control__label">{{ label() + (control.hasValidator(Validators.required) ? '*' : '') }}</label>
   @switch (type()) {
     @case ('password') {
-      <input class='input-control__input' type="password" />
+      <input class='input-control__input' type="password" (input)="onValueChange($event)" />
     }
     @default {
-      <input class='input-control__input' type="text" />
+      <input class='input-control__input' type="text" (input)="onValueChange($event)" />
     }
-
   }
+  <section class="input-control__errors">
+    @if (this.touched && this.control.invalid) {
+      <span>
+        {{ this.control.hasError('required') && 'Pole wymagane' }}
+      </span>
+    }
+  </section>
 </div>

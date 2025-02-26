@@ -1,4 +1,6 @@
-<article class="login-page__wrapper">
-  <app-input-control label="Adres e-mail" />
-  <app-input-control label="Hasło" type="password" />
-</article>
+<form class="login-page__wrapper" [formGroup]="form" (ngSubmit)="onLogIn($event)">
+  <app-input-control label="Adres e-mail" formControlName="email" />
+  <app-input-control label="Hasło" type="password" formControlName="password" />
+
+  <button class="login-page__submit-button" type="submit" (click)="$event.stopPropagation();">Log in</button>
+</form>

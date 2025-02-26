@@ -10,4 +10,12 @@
   &__input {
     width: 100%;
   }
+
+  &__errors {
+    min-height: 1rem;
+    margin-top: .4rem;
+    line-height: 1rem;
+    font-size: .8rem;
+    color: red;
+  }
 }

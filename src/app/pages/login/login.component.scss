@@ -2,4 +2,16 @@
   &__wrapper {
     margin: 0 auto;
   }
+
+  &__submit-button {
+    padding: .4rem 2rem;
+    border: none;
+    background-color: #ff9b00;
+    color: white;
+    cursor: pointer;
+
+    &:hover, &:active {
+      background-color: #cd8000;
+    }
+  }
 }
