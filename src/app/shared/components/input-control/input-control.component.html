@@ -11,7 +11,11 @@
   <section class="input-control__errors">
     @if (this.touched && this.control.invalid) {
       <span>
-        {{ this.control.hasError('required') && 'Pole wymagane' }}
+        @if (this.control.hasError('required')) {
+          Pole wymagane.
+        } @else if (this.control.hasError('email')) {
+          Błędny adres e-mail.
+        }
       </span>
     }
   </section>

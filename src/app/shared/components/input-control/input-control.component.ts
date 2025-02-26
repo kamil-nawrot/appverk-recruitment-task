@@ -8,12 +8,12 @@ import {
 import {
   AbstractControl,
   ControlValueAccessor,
-  FormControl, FormControlName, FormsModule,
+  FormControlName, FormsModule,
   NG_VALUE_ACCESSOR,
   ReactiveFormsModule, TouchedChangeEvent,
   Validators
 } from '@angular/forms';
-import {takeUntilDestroyed} from '@angular/core/rxjs-interop';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 
 @Component({
   selector: 'app-input-control',
