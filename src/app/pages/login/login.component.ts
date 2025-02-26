@@ -20,10 +20,10 @@ import {Router} from '@angular/router';
 })
 export class LoginComponent implements OnInit {
 
-  private readonly fb = inject(FormBuilder);
-  private authService = inject(AuthService);
+  private readonly authService = inject(AuthService);
   private readonly destroyRef = inject(DestroyRef);
-  private router = inject(Router);
+  private readonly fb = inject(FormBuilder);
+  private readonly router = inject(Router);
 
   form = this.fb.group<{ email: FormControl<string | null>, password: FormControl<string | null> }>({
     email: this.fb.control<string | null>(null, [Validators.required, emailPatternValidator()]),
@@ -31,15 +31,14 @@ export class LoginComponent implements OnInit {
   });
 
   protected onLogIn(): void {
-    console.log(this.form.value);
+    this.form.setErrors(null);
     this.form.markAllAsTouched();
     this.form.updateValueAndValidity();
 
     if (this.form.valid) {
       this.authService.authenticateUser(this.form.value as CredentialsModel).pipe(takeUntilDestroyed(this.destroyRef)).subscribe(res => {
-        console.log('RES:', res);
         if (!res) {
-
+          this.form.setErrors({ wrongCredentials: true });
         } else {
           this.authService.generateAuthToken();
           void this.router.navigate(['dashboard']);

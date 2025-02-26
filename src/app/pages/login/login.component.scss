@@ -1,4 +1,12 @@
 .login-page {
+
+  &__error {
+    margin-bottom: 2rem;
+    padding: .4rem;
+    background-color: red;
+    color: white;
+  }
+
   &__wrapper {
     margin: 0 auto;
   }

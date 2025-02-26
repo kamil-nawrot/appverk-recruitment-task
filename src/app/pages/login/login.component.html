@@ -1,4 +1,7 @@
 <form class="login-page__wrapper" [formGroup]="form" (ngSubmit)="onLogIn()">
+  @if (this.form.hasError('wrongCredentials')) {
+    <article class="login-page__error">Incorrect email and/or password.</article>
+  }
   <app-input-control label="E-mail" formControlName="email" />
   <app-input-control label="Password" type="password" formControlName="password" />
 
