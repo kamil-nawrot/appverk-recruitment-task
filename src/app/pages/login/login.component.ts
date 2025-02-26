@@ -5,6 +5,7 @@ import { emailPatternValidator } from '../../shared/validators/email.validator';
 import { AuthService } from '../../auth/auth.service';
 import { CredentialsModel } from '../../shared/models/credentials.model';
 import {takeUntilDestroyed} from '@angular/core/rxjs-interop';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -22,6 +23,7 @@ export class LoginComponent implements OnInit {
   private readonly fb = inject(FormBuilder);
   private authService = inject(AuthService);
   private readonly destroyRef = inject(DestroyRef);
+  private router = inject(Router);
 
   form = this.fb.group<{ email: FormControl<string | null>, password: FormControl<string | null> }>({
     email: this.fb.control<string | null>(null, [Validators.required, emailPatternValidator()]),
@@ -39,8 +41,8 @@ export class LoginComponent implements OnInit {
         if (!res) {
 
         } else {
-          const token = this.authService.generateAuthToken();
-          console.log('TOKEN:', token);
+          this.authService.generateAuthToken();
+          void this.router.navigate(['dashboard']);
         }
       });
     }
