@@ -12,9 +12,9 @@
     @if (this.touched && this.control.invalid) {
       <span>
         @if (this.control.hasError('required')) {
-          Pole wymagane.
+          This field is required.
         } @else if (this.control.hasError('email')) {
-          Błędny adres e-mail.
+          Incorrect e-mail address.
         }
       </span>
     }

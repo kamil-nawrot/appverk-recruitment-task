@@ -32,7 +32,7 @@ export class InputControlComponent implements ControlValueAccessor, AfterContent
   private readonly destroyRef = inject(DestroyRef);
 
   control!: AbstractControl<string>;
-  value = '';
+  value!: string;
   touched = false;
   disabled = false;
 
@@ -54,6 +54,7 @@ export class InputControlComponent implements ControlValueAccessor, AfterContent
   }
 
   writeValue(value: string) {
+    console.log('writeValue', value);
     this.value = value;
   }
 
@@ -75,7 +76,7 @@ export class InputControlComponent implements ControlValueAccessor, AfterContent
   }
 
   private markAsTouched(): void{
-    if(!this.touched){
+    if (!this.touched){
       this.touched = true;
       this.onTouched();
     }

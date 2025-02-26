@@ -1,7 +1,10 @@
-import {Component, inject, OnInit} from '@angular/core';
+import {Component, DestroyRef, inject, OnInit} from '@angular/core';
 import { InputControlComponent } from '../../shared/components/input-control/input-control.component';
-import {FormBuilder, FormControl, FormsModule, ReactiveFormsModule, Validators} from '@angular/forms';
-import {emailPatternValidator} from '../../shared/validators/email.validator';
+import { FormBuilder, FormControl, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
+import { emailPatternValidator } from '../../shared/validators/email.validator';
+import { AuthService } from '../../auth/auth.service';
+import { CredentialsModel } from '../../shared/models/credentials.model';
+import {takeUntilDestroyed} from '@angular/core/rxjs-interop';
 
 @Component({
   selector: 'app-login',
@@ -10,22 +13,37 @@ import {emailPatternValidator} from '../../shared/validators/email.validator';
     ReactiveFormsModule,
     FormsModule
   ],
+  providers: [AuthService],
   templateUrl: './login.component.html',
   styleUrl: './login.component.scss'
 })
 export class LoginComponent implements OnInit {
 
   private readonly fb = inject(FormBuilder);
+  private authService = inject(AuthService);
+  private readonly destroyRef = inject(DestroyRef);
 
-  form = this.fb.group<{ email: FormControl<string>, password: FormControl<string> }>({
-    email: this.fb.nonNullable.control('', [Validators.required, emailPatternValidator()]),
-    password: this.fb.nonNullable.control('', Validators.required),
-  }, { updateOn: 'submit' });
+  form = this.fb.group<{ email: FormControl<string | null>, password: FormControl<string | null> }>({
+    email: this.fb.control<string | null>(null, [Validators.required, emailPatternValidator()]),
+    password: this.fb.control<string | null>(null, Validators.required),
+  });
 
   protected onLogIn(): void {
     console.log(this.form.value);
     this.form.markAllAsTouched();
     this.form.updateValueAndValidity();
+
+    if (this.form.valid) {
+      this.authService.authenticateUser(this.form.value as CredentialsModel).pipe(takeUntilDestroyed(this.destroyRef)).subscribe(res => {
+        console.log('RES:', res);
+        if (!res) {
+
+        } else {
+          const token = this.authService.generateAuthToken();
+          console.log('TOKEN:', token);
+        }
+      });
+    }
   }
 
   ngOnInit(): void {
