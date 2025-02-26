@@ -21,8 +21,10 @@ export class LoginComponent implements OnInit {
     password: this.fb.nonNullable.control('', Validators.required),
   })
 
-  protected onLogIn(event: any): void {
+  protected onLogIn(): void {
     console.log(this.form.value);
+    this.form.markAllAsTouched();
+    this.form.updateValueAndValidity();
   }
 
   ngOnInit(): void {

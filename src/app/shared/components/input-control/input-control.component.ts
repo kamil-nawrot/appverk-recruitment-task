@@ -1,21 +1,19 @@
 import {
   AfterContentInit,
-  Component,
-  forwardRef,
+  Component, DestroyRef,
+  forwardRef, inject,
   Injector,
-  input,
-  Optional,
-  Self
+  input
 } from '@angular/core';
 import {
   AbstractControl,
   ControlValueAccessor,
   FormControl, FormControlName, FormsModule,
   NG_VALUE_ACCESSOR,
-  ReactiveFormsModule,
+  ReactiveFormsModule, TouchedChangeEvent,
   Validators
 } from '@angular/forms';
-import {JsonPipe} from '@angular/common';
+import {takeUntilDestroyed} from '@angular/core/rxjs-interop';
 
 @Component({
   selector: 'app-input-control',
@@ -30,6 +28,9 @@ export class InputControlComponent implements ControlValueAccessor, AfterContent
   label = input('');
   type = input<'text' | 'password'>('text');
 
+  private injector = inject(Injector, { self: true, optional: true });
+  private readonly destroyRef = inject(DestroyRef);
+
   control!: AbstractControl<string>;
   value = '';
   touched = false;
@@ -40,18 +41,19 @@ export class InputControlComponent implements ControlValueAccessor, AfterContent
 
   protected readonly Validators = Validators;
 
-  constructor(@Optional() @Self() private injector: Injector) {}
-
   ngAfterContentInit(): void {
-    const control = this.injector.get(FormControlName);
+    const control = this.injector?.get(FormControlName);
     if (control) {
-      console.log('CONTROL:', control, 'VALUE:', this.value);
       this.control = control.control;
+      this.control.events.pipe(takeUntilDestroyed(this.destroyRef)).subscribe(event => {
+        if (event instanceof TouchedChangeEvent) {
+          this.touched = event.touched;
+        }
+      })
     }
   }
 
   writeValue(value: string) {
-    console.log('value:', value);
     this.value = value;
   }
 
@@ -78,6 +80,4 @@ export class InputControlComponent implements ControlValueAccessor, AfterContent
       this.onTouched();
     }
   }
-
-  protected readonly FormControl = FormControl;
 }
