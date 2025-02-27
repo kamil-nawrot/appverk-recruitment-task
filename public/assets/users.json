@@ -4,5 +4,23 @@
     "firstName": "John",
     "lastName": "Doe",
     "password": "test123"
+  },
+  {
+    "email": "jane.doe@mail.com",
+    "firstName": "Jane",
+    "lastName": "Doe",
+    "password": "password"
+  },
+  {
+    "email": "jannowak@gmail.com",
+    "firstName": "Jan",
+    "lastName": "Nowak",
+    "password": "test123"
+  },
+  {
+    "email": "test@mail.pl",
+    "firstName": "Test",
+    "lastName": "User",
+    "password": "test"
   }
 ]

@@ -1,4 +1,4 @@
-$layout-breakpoint-small: 768px;
+@import './../../../styles/variables';
 
 .login-page {
 
@@ -25,7 +25,7 @@ $layout-breakpoint-small: 768px;
     height: 48px;
     margin-bottom: 2rem;
     padding: .8rem 1.2rem;
-    background-color: red;
+    background-color: $warn-color;
     color: white;
 
     &--hidden {

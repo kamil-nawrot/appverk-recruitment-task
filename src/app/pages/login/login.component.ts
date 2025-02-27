@@ -53,6 +53,5 @@ export class LoginComponent {
     });
     this.form.markAllAsTouched();
     this.form.updateValueAndValidity();
-    console.log('form value: ', this.form.value)
   }
 }

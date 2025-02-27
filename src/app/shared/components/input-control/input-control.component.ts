@@ -25,6 +25,7 @@ import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
   ]
 })
 export class InputControlComponent implements ControlValueAccessor, AfterContentInit {
+  id = input('');
   label = input('');
   type = input<'text' | 'password'>('text');
 
@@ -54,9 +55,7 @@ export class InputControlComponent implements ControlValueAccessor, AfterContent
   }
 
   writeValue(value: string) {
-    console.log('writeValue', value)
     this.value = value;
-    this.onChange(value);
   }
 
   registerOnChange(fn: any): void {
