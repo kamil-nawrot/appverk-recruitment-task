@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Josefin+Sans');
+@import './styles/variables';
 
 // CSS reset by Josh Comeau
 
@@ -61,12 +62,12 @@ h1 {
 button {
   padding: .4rem 2rem;
   border: none;
-  background-color: #ff9b00;
+  background-color: $primary-color;
   color: white;
   cursor: pointer;
 
   &:hover, &:active {
-    background-color: #cd8000;
+    background-color: $primary-color-dark;
   }
 }
 

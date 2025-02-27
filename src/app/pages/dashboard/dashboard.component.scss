@@ -1,3 +1,5 @@
+@import './../../../styles/variables';
+
 .dashboard-page {
   display: flex;
   flex-direction: column;
@@ -17,7 +19,7 @@
   &__toggle-password-button {
     width: 200px;
     background: none;
-    border: 1px solid #ff9b00;
-    color: #ff9b00;
+    border: 1px solid $primary-color;
+    color: $primary-color;
   }
 }

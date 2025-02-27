@@ -1,6 +1,8 @@
+@import './../styles/variables';
+
 .main-header {
   padding: 4rem;
-  background-color: #ff9b00;
+  background-color: $primary-color;
   color: white;
   text-transform: uppercase;
   text-align: center;
@@ -8,6 +10,21 @@
 
 .main-content {
   &__wrapper {
-    margin: 2rem 4rem;
+    margin: 2rem 4rem 8rem 4rem;
+  }
+}
+
+.main-footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  padding: 2rem;
+  background-color: $primary-color;
+  color: white;
+  text-align: center;
+
+  a {
+    text-decoration: none;
+    color: black;
   }
 }
