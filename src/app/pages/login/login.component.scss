@@ -1,13 +1,41 @@
-.login-page {
+$layout-breakpoint-small: 768px;
 
-  &__error {
-    margin-bottom: 2rem;
-    padding: .4rem;
-    background-color: red;
-    color: white;
+.login-page {
+  max-width: 1200px;
+  margin: 0 auto;
+
+  &__content {
+    display: flex;
+    flex-direction: row;
+    column-gap: 4rem;
+    row-gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+
+    @media (max-width: $layout-breakpoint-small) {
+      flex-direction: column;
+      justify-content: center;
+    }
   }
 
-  &__wrapper {
-    margin: 0 auto;
+  &__form {
+    flex-grow: 0;
+    margin-bottom: 4rem;
+  }
+
+  &__error {
+    height: 48px;
+    margin-bottom: 2rem;
+    padding: .8rem 1.2rem;
+    background-color: red;
+    color: white;
+
+    &--hidden {
+      visibility: hidden;
+    }
+  }
+
+  &__autofill-button {
+    margin-top: 1rem;
   }
 }

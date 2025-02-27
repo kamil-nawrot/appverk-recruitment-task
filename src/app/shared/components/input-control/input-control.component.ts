@@ -54,7 +54,9 @@ export class InputControlComponent implements ControlValueAccessor, AfterContent
   }
 
   writeValue(value: string) {
+    console.log('writeValue', value)
     this.value = value;
+    this.onChange(value);
   }
 
   registerOnChange(fn: any): void {

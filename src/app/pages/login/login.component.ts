@@ -45,4 +45,14 @@ export class LoginComponent {
       });
     }
   }
+
+  protected onAutofillLogInForm(): void {
+    this.form.setValue({
+      email: 'john.doe@mail.com',
+      password: 'test123',
+    });
+    this.form.markAllAsTouched();
+    this.form.updateValueAndValidity();
+    console.log('form value: ', this.form.value)
+  }
 }

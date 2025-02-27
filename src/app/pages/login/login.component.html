@@ -1,9 +1,18 @@
-<form class="login-page__wrapper" [formGroup]="form" (ngSubmit)="onLogIn()">
-  @if (this.form.hasError('wrongCredentials')) {
-    <article class="login-page__error">Incorrect email and/or password.</article>
-  }
-  <app-input-control label="E-mail" formControlName="email" />
-  <app-input-control label="Password" type="password" formControlName="password" />
+<main class="login-page">
+  <p class="login-page__error"[class.login-page__error--hidden]="!form.hasError('wrongCredentials')">
+    Incorrect email and/or password.
+  </p>
+  <div class="login-page__content">
+    <form class="login-page__form" [formGroup]="form" (ngSubmit)="onLogIn()">
+      <app-input-control label="E-mail" formControlName="email" />
+      <app-input-control label="Password" type="password" formControlName="password" />
 
-  <button class="login-page__submit-button" type="submit" (click)="$event.stopPropagation();">Log in</button>
-</form>
+      <button class="login-page__submit-button" type="submit" (click)="$event.stopPropagation();">Log in</button>
+    </form>
+    <section>
+      <h1>Welcome!</h1>
+      <p>In order to log in, submit valid credentials via the sign in form. Only users present in the <strong>users.json</strong> array are accepted. You can use the button below to autofill the form with correct data.</p>
+      <button class="login-page__autofill-button" (click)="onAutofillLogInForm()">Enter exemplary valid credentials</button>
+    </section>
+  </div>
+</main>

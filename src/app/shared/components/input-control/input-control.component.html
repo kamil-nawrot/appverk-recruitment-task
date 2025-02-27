@@ -2,10 +2,10 @@
   <label class="input-control__label">{{ label() + (control.hasValidator(Validators.required) ? '*' : '') }}</label>
   @switch (type()) {
     @case ('password') {
-      <input class='input-control__input' type="password" (input)="onValueChange($event)" />
+      <input class='input-control__input' type="password" (input)="onValueChange($event)" [value]="value" />
     }
     @default {
-      <input class='input-control__input' type="text" (input)="onValueChange($event)" />
+      <input class='input-control__input' type="text" (input)="onValueChange($event)" [value]="value" />
     }
   }
   <section class="input-control__errors">
