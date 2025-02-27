@@ -53,3 +53,15 @@ h1, h2, h3, h4, h5, h6 {
 * {
   font-family: 'Josefin Sans', sans-serif;
 }
+
+button {
+  padding: .4rem 2rem;
+  border: none;
+  background-color: #ff9b00;
+  color: white;
+  cursor: pointer;
+
+  &:hover, &:active {
+    background-color: #cd8000;
+  }
+}

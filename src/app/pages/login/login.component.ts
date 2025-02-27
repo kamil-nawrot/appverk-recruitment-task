@@ -14,7 +14,6 @@ import {Router} from '@angular/router';
     ReactiveFormsModule,
     FormsModule
   ],
-  providers: [AuthService],
   templateUrl: './login.component.html',
   styleUrl: './login.component.scss'
 })
