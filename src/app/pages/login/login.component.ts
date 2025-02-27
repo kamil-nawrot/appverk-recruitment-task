@@ -1,11 +1,11 @@
-import {Component, DestroyRef, inject, OnInit} from '@angular/core';
+import { Component, DestroyRef, inject } from '@angular/core';
 import { InputControlComponent } from '../../shared/components/input-control/input-control.component';
 import { FormBuilder, FormControl, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { emailPatternValidator } from '../../shared/validators/email.validator';
 import { AuthService } from '../../auth/auth.service';
 import { CredentialsModel } from '../../shared/models/credentials.model';
-import {takeUntilDestroyed} from '@angular/core/rxjs-interop';
-import {Router} from '@angular/router';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -17,7 +17,7 @@ import {Router} from '@angular/router';
   templateUrl: './login.component.html',
   styleUrl: './login.component.scss'
 })
-export class LoginComponent implements OnInit {
+export class LoginComponent {
 
   private readonly authService = inject(AuthService);
   private readonly destroyRef = inject(DestroyRef);
@@ -45,11 +45,4 @@ export class LoginComponent implements OnInit {
       });
     }
   }
-
-  ngOnInit(): void {
-    this.form.controls.email.valueChanges.subscribe(value => {
-      console.log('email:', value);
-    })
-  }
-
 }
