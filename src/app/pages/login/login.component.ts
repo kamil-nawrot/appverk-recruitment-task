@@ -29,7 +29,7 @@ export class LoginComponent {
     password: this.fb.control<string | null>(null, Validators.required),
   });
 
-  protected onLogIn(): void {
+  onLogIn(): void {
     this.form.setErrors(null);
     this.form.markAllAsTouched();
     this.form.updateValueAndValidity();
@@ -46,7 +46,7 @@ export class LoginComponent {
     }
   }
 
-  protected onAutofillLogInForm(): void {
+  onAutofillLogInForm(): void {
     this.form.setValue({
       email: 'john.doe@mail.com',
       password: 'test123',

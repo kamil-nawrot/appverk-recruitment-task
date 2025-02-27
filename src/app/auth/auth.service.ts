@@ -35,7 +35,7 @@ export class AuthService {
   }
 
   generateAuthToken(): string {
-    const token = hashSync(this.currentUser()!.email);
+    const token = hashSync(this.currentUser()?.email || '');
     localStorage.setItem('access_token', token);
     return token;
   }

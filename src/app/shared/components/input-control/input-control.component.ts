@@ -46,7 +46,7 @@ export class InputControlComponent implements ControlValueAccessor, AfterContent
     const control = this.injector?.get(FormControlName);
     if (control) {
       this.control = control.control;
-      this.control.events.pipe(takeUntilDestroyed(this.destroyRef)).subscribe(event => {
+      this.control?.events.pipe(takeUntilDestroyed(this.destroyRef)).subscribe(event => {
         if (event instanceof TouchedChangeEvent) {
           this.touched = event.touched;
         }

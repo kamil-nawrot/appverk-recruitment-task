@@ -1,5 +1,5 @@
 <div class="input-control">
-  <label class="input-control__label" [for]="id()">{{ label() + (control.hasValidator(Validators.required) ? '*' : '') }}</label>
+  <label class="input-control__label" [for]="id()">{{ label() + (control?.hasValidator(Validators.required) ? '*' : '') }}</label>
   @switch (type()) {
     @case ('password') {
       <input class='input-control__input' [id]="id()" type="password" (input)="onValueChange($event)" [value]="value" />
