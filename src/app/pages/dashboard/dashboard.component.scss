@@ -1,4 +1,4 @@
-@import './../../../styles/variables';
+@use './../../../styles/variables';
 
 .dashboard-page {
   display: flex;
@@ -19,7 +19,7 @@
   &__toggle-password-button {
     width: 200px;
     background: none;
-    border: 1px solid $primary-color-dark;
-    color: $primary-color-dark;
+    border: 1px solid variables.$primary-color-dark;
+    color: variables.$primary-color-dark;
   }
 }

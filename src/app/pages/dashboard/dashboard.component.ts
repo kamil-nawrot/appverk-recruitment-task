@@ -4,12 +4,14 @@ import { Router } from '@angular/router';
 import { UserModel } from '../../shared/models/user.model';
 import { FullNamePipe } from '../../shared/pipes/full-name.pipe';
 import {PasswordPipe} from '../../shared/pipes/password.pipe';
+import { TranslatePipe } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-dashboard',
   imports: [
     FullNamePipe,
-    PasswordPipe
+    PasswordPipe,
+    TranslatePipe,
   ],
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.scss'

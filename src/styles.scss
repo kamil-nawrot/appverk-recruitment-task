@@ -1,5 +1,5 @@
+@use 'styles/variables';
 @import url('https://fonts.googleapis.com/css?family=Josefin+Sans');
-@import './styles/variables';
 
 // CSS reset by Josh Comeau
 
@@ -51,6 +51,11 @@ h1, h2, h3, h4, h5, h6 {
   isolation: isolate;
 }
 
+@font-face {
+  font-family: 'Josefin Sans';
+  src: url('https://fonts.googleapis.com/css?family=Josefin+Sans');
+}
+
 * {
   font-family: 'Josefin Sans', sans-serif;
 }
@@ -62,12 +67,12 @@ h1 {
 button {
   padding: .4rem 2rem;
   border: none;
-  background-color: $primary-color;
+  background-color: variables.$primary-color;
   color: black;
   cursor: pointer;
 
   &:hover, &:active {
-    background-color: $primary-color-dark;
+    background-color: variables.$primary-color-dark;
     color: white;
   }
 }

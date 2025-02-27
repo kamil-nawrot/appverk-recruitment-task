@@ -1,9 +1,20 @@
 <header class="main-header">
-  <h1>Recruitment task</h1>
+  <h1>{{ 'app.mainHeader' | translate }}</h1>
+  <section>
+    @for (lang of ['en', 'pl']; track lang) {
+      <span 
+        class="main-header__language-button"
+        [class.main-header__language-button--current]="translate.currentLang === lang"
+        (click)="onLanguageSwitch(lang)"
+      >
+      {{ lang | uppercase }}
+    </span>
+    }
+  </section>
 </header>
 <main class="main-content__wrapper">
   <router-outlet />
 </main>
 <footer class="main-footer">
-  Created by <a href="https://kamilnawrot.pl" target="_blank">Kamil Nawrot</a>
+  {{ 'app.mainFooter' | translate }} <a href="https://kamilnawrot.pl" target="_blank">Kamil Nawrot</a>
 </footer>

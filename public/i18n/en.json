@@ -1,0 +1,23 @@
+{
+    "app.mainHeader": "Recruitment task",
+
+    "app.login.form.emailLabel": "E-mail",
+    "app.login.form.passwordLabel": "Password",
+    "app.login.form.submitButton": "Log in",
+    "app.login.form.error.required": "Field is required",
+    "app.login.form.error.incorrectPassword": "Incorrect user and/or password",
+    "app.login.form.error.incorrectEmail": "Incorrect e-mail address",
+    "app.login.text.header": "Welcome",
+    "app.login.text.content": "In order to log in, submit valid credentials via the sign in form. Only users present in the <strong>users.json</strong> array are accepted. You can use the button below to autofill the form with correct data.",
+    "app.login.text.autofillButton": "Enter exemplary valid credentials",
+
+    "app.dashboard.logoutButton": "Log out",
+    "app.dashboard.header": "Personal data",
+    "app.dashboard.nameLabel": "You are currently signed in as",
+    "app.dashboard.emailLabel": "Your e-mail address:",
+    "app.dashboard.passwordLabel": "Your password:",
+    "app.dashboard.showPasswordButton": "Show password",
+    "app.dashboard.hidePasswordButton": "Hide password",
+
+    "app.mainFooter": "Created by"
+}

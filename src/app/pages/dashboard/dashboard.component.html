@@ -1,13 +1,13 @@
 <div class="dashboard-page page">
-  <button class="dashboard-page__logout-button" (click)="onLogOut()">Log out</button>
+  <button class="dashboard-page__logout-button" (click)="onLogOut()">{{ 'app.dashboard.logoutButton' | translate }}</button>
   <section class="dashboard-page__personal-data">
-    <h1>Personal data</h1>
-    <p>You are currently signed in as <strong>{{ userData() | fullName }}.</strong></p>
-    <p>Your e-mail address: <strong>{{ userData()?.email }}</strong></p>
+    <marquee >{{ 'app.dashboard.header' | translate }}</marquee>
+    <p>{{ 'app.dashboard.nameLabel' | translate }} <strong>{{ userData() | fullName }}.</strong></p>
+    <p>{{ 'app.dashboard.emailLabel' | translate }} <strong>{{ userData()?.email }}</strong></p>
     <p>
-      Your password: <strong>{{ userData()?.password | password: isPasswordHidden() }}</strong>
+      {{ 'app.dashboard.passwordLabel' | translate }} <strong>{{ userData()?.password | password: isPasswordHidden() }}</strong>
     </p>
-    <button class="dashboard-page__toggle-password-button" (click)="onTogglePasswordVisibility()">{{ isPasswordHidden() ? 'Show password' : 'Hide password' }}</button>
+    <button class="dashboard-page__toggle-password-button" (click)="onTogglePasswordVisibility()">{{ (isPasswordHidden() ? 'app.dashboard.showPasswordButton' : 'app.dashboard.hidePasswordButton') | translate }}</button>
   </section>
 </div>
 

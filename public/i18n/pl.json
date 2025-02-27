@@ -1,0 +1,23 @@
+{
+    "app.mainHeader": "Zadanie rekrutacyjne",
+
+    "app.login.form.emailLabel": "E-mail",
+    "app.login.form.passwordLabel": "Hasło",
+    "app.login.form.submitButton": "Zaloguj się",
+    "app.login.form.error.required": "To pole jest wymagane",
+    "app.login.form.error.incorrectPassword": "Nieprawidłowy adres e-mail i/lub hasło",
+    "app.login.form.error.incorrectEmail": "Adres e-mail jest nieprawidłowy",
+    "app.login.text.header": "Cześć!",
+    "app.login.text.content": "Aby się zalogować, podaj poprawne dane logowania za pomocą formularza logowania. Tylko użytkownicy obecni w tablicy <strong>users.json</strong> są akceptowani. Możesz skorzystać z przycisku poniżej, aby wypełnić formularz przykładowymi poprawnymi danymi.",
+    "app.login.text.autofillButton": "Uzupełnij formularz przykładowymi danymi",
+
+    "app.dashboard.logoutButton": "Wyloguj",
+    "app.dashboard.header": "Twoje dane osobowe",
+    "app.dashboard.nameLabel": "Jesteś zalogowany jako",
+    "app.dashboard.emailLabel": "Twój adres e-mail:",
+    "app.dashboard.passwordLabel": "Twoje hasło:",
+    "app.dashboard.showPasswordButton": "Odsłoń hasło",
+    "app.dashboard.hidePasswordButton": "Ukryj hasło",
+
+    "app.mainFooter": "Projekt autorstwa:"
+}

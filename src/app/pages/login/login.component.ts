@@ -6,13 +6,15 @@ import { AuthService } from '../../auth/auth.service';
 import { CredentialsModel } from '../../shared/models/credentials.model';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { Router } from '@angular/router';
+import { TranslatePipe } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-login',
   imports: [
     InputControlComponent,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    TranslatePipe
   ],
   templateUrl: './login.component.html',
   styleUrl: './login.component.scss'
