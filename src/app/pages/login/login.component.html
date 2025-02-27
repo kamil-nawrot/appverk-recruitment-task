@@ -1,5 +1,5 @@
-<main class="login-page">
-  <p class="login-page__error"[class.login-page__error--hidden]="!form.hasError('wrongCredentials')">
+<div class="login-page page">
+  <p class="login-page__error" [class.login-page__error--hidden]="!form.hasError('wrongCredentials')">
     Incorrect email and/or password.
   </p>
   <div class="login-page__content">
@@ -15,4 +15,4 @@
       <button class="login-page__autofill-button" (click)="onAutofillLogInForm()">Enter exemplary valid credentials</button>
     </section>
   </div>
-</main>
+</div>

@@ -1,3 +1,13 @@
-<button (click)="onLogOut()">Log out</button>
+<div class="dashboard-page page">
+  <button class="dashboard-page__logout-button" (click)="onLogOut()">Log out</button>
+  <section class="dashboard-page__personal-data">
+    <h1>Personal data</h1>
+    <p>You are currently signed in as <strong>{{ userData() | fullName }}.</strong></p>
+    <p>Your e-mail address: <strong>{{ userData()?.email }}</strong></p>
+    <p>
+      Your password: <strong>{{ userData()?.password | password: isPasswordHidden() }}</strong>
+    </p>
+    <button class="dashboard-page__toggle-password-button" (click)="onTogglePasswordVisibility()">{{ isPasswordHidden() ? 'Show password' : 'Hide password' }}</button>
+  </section>
+</div>
 
-<p>You are currently signed in as <strong>{{ userData() | fullName }}</strong></p>

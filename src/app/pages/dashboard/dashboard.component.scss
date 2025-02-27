@@ -1,0 +1,23 @@
+.dashboard-page {
+  display: flex;
+  flex-direction: column;
+
+  &__logout-button {
+    max-width: 200px;
+    align-self: flex-end;
+    margin-bottom: 4rem;
+  }
+
+  &__personal-data {
+    p {
+      margin: 1rem 0;
+    }
+  }
+
+  &__toggle-password-button {
+    width: 200px;
+    background: none;
+    border: 1px solid #ff9b00;
+    color: #ff9b00;
+  }
+}
